@@ -4,36 +4,58 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        table, tr, td{
+        table{
             border: 1px solid;
-            height: 20px; width: 40px
+            height: 300px; width: 200px
+        }
+        tr,td {
+            text-align: center;
         }
 
     </style>
 </head>
 <body>
-<table>
+<table >
     <tr>
-        <td colspan="4">1</td>
+        <th colspan="4" id="box"><input type="text" id="display"></th>
     </tr>
     <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>+</td>
+        <td><input type="button" value="1" onclick="clickNumber(1)"></td>
+        <td><input type="button" value="2" onclick="clickNumber(2)"></td>
+        <td><input type="button" value="3" onclick="clickNumber(3)"></td>
+        <td><input type="button" value="+" onclick="clickNumber('+')"></td>
     </tr>
     <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        <td>-</td>
+        <td><input type="button" value="4" onclick="clickNumber(4)"></td>
+        <td><input type="button" value="5" onclick="clickNumber(5)"></td>
+        <td><input type="button" value="6" onclick="clickNumber(6)"></td>
+        <td><input type="button" value="-" onclick="clickNumber('-')"></td>
     </tr>
     <tr>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-        <td>x</td>
+        <td><input type="button" value="7" onclick="clickNumber(7)"></td>
+        <td><input type="button" value="8" onclick="clickNumber(8)"></td>
+        <td><input type="button" value="9" onclick="clickNumber(9)"></td>
+        <td><input type="button" value="x" onclick="clickNumber('x')"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="C" onclick="clearDisplay()"></td>
+        <td><input type="button" value="0" onclick="clickNumber(0)"></td>
+        <td><input type="button" value="=" onclick="bang()"></td>
+        <td><input type="button" value="/"  onclick="clickNumber('/')"></td>
     </tr>
 </table>
 </body>
 </html>
+<script>
+    function clickNumber(number){
+        document.getElementById('display').value += number;
+    }
+    function clearDisplay(){
+       document.getElementById('display').value = '';
+    }
+    function bang() {
+        let value = document.getElementById('display').value;
+        document.getElementById('display').value = eval(value);
+
+    }
+</script>
